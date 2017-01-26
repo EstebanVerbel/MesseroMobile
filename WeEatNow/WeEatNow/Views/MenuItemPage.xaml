@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeEatNow.Views.MenuItemPage"
+             Title="{Binding Title}">
+  
+  <StackLayout>
+
+    <Image Source="{Binding MenuItem.Picture.Data.Url}"
+             Aspect="AspectFill"
+             HeightRequest="{Binding FoodImageHeight}" />
+    
+    <Label Text="{Binding MenuItem.Name}" HorizontalTextAlignment="Center"/>
+    
+    <Label Text="Special Instructions"  />  
+    <Editor Text="Add a note"/>
+
+    <Grid>
+      
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="3*" />
+        <ColumnDefinition Width="3*" />
+        <ColumnDefinition Width="3*" />
+      </Grid.ColumnDefinitions>
+      
+      <Button Text="-" Grid.Column="0" Clicked="RemoveOneItem_Clicked"/>
+      <Label Text="{Binding Quantity}" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  />
+      <Button Text="+" Grid.Column="2" Clicked="AddOneItem_Clicked" />
+    
+    </Grid>
+
+    <Button Text="{Binding Path=Quantity, StringFormat='Add {0} to Cart'}"
+            IsEnabled="{Binding IsNotBusy}"
+            x:Name="addToCartButton" 
+            Clicked="AddToCartButton_Clicked" />
+  
+  </StackLayout>
+  
+</ContentPage>

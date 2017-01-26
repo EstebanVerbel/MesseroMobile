@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeEatNow.Views.CheckoutPage"
+             Title="{Binding Title}">
+
+  <StackLayout>
+
+    <ScrollView>
+      <StackLayout>
+        <Label Text="{Binding Cart.Restaurant.Name}" HorizontalTextAlignment="Center"/>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+
+        <Label Text="List of Items in your Cart" HorizontalTextAlignment="Center" Font="Bold" TextColor="#FFA500" />
+
+        <Grid x:Name="cartItemsGrid">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="5*" />
+          </Grid.ColumnDefinitions>
+        
+        </Grid>
+
+        <BoxView HeightRequest="1" WidthRequest="{Binding DividersWidth}" Color="Gray" />
+        
+        <Label Text="Add a note about yout order" HorizontalTextAlignment="Center" Font="Bold" TextColor="#FFA500" />
+        
+        <Editor Text=""/>
+
+        <Label Text="Select the Date" HorizontalTextAlignment="Center" Font="Bold" TextColor="#FFA500" />
+        
+        <DatePicker Date="{Binding Order.Date}" />
+        
+        <Label Text="Enter the Time" HorizontalTextAlignment="Center" Font="Bold" TextColor="#FFA500" />
+        
+        <TimePicker Time="{Binding Order.Time}" />
+        
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="5*" />
+          </Grid.ColumnDefinitions>
+
+          <Label Text="Subtotal" Grid.Row="0" Grid.Column="0" />
+          <Label Text="{Binding Subtotal, StringFormat='${0}'}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End" TextColor="Green" />
+
+          <Label Text="Tax" Grid.Row="1" Grid.Column="0" />
+          <Label Text="{Binding Tax, StringFormat='${0}'}" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End" TextColor="Green" />
+
+          <Label Text="Purchase Fee" Grid.Row="2" Grid.Column="0" />
+          <Label Text="{Binding PurchaseFee, StringFormat='${0}'}" Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="End" TextColor="Green" />
+
+          <Label Text="Total" Grid.Row="3" Grid.Column="0" Font="Bold" />
+          <Label Text="{Binding Total, StringFormat='${0}'}" Grid.Row="3" Grid.Column="1" HorizontalTextAlignment="End" TextColor="Green" Font="Bold" />
+        
+        </Grid>
+
+        <BoxView HeightRequest="1" WidthRequest="{Binding DividersWidth}" Color="Gray" />
+        
+        <Label Text="Tips are not included in the cost of your order." HorizontalTextAlignment="Center" />
+        
+        <Button Text="PLACE ORDER" IsEnabled="{Binding IsNotBusy}" />
+    
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+
+</ContentPage>

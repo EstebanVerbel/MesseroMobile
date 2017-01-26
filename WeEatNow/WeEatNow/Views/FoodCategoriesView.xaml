@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeEatNow.Views.FoodCategoriesView"
+             Title="{Binding Title}">
+
+  <StackLayout>
+
+    <Label x:Name="locationLabel" />
+
+    <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                       IsVisible="{Binding IsBusy}" />
+
+    <ListView ItemsSource="{Binding FoodCategories}" 
+              RefreshCommand="{Binding LoadFoodCategoriesCommand}" 
+              x:Name="foodCategoriesListView">
+      
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ImageCell Text="{Binding Name}" ImageSource="{Binding Image.Data.Url}"/>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+   <Button Text="{Binding Path=ItemsInCart, StringFormat='Checkout     {0}'}" 
+           IsVisible="{Binding CartExists}" 
+           IsEnabled="{Binding IsNotBusy}"
+           x:Name="checkoutButton" 
+           Clicked="CheckoutButton_Clicked" />
+
+  </StackLayout>
+
+</ContentPage>

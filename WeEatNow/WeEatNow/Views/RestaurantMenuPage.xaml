@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeEatNow.Views.RestaurantMenuPage"
+             Title="{Binding Title}">
+
+  <StackLayout>
+
+    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+
+    <StackLayout>
+
+      <Image Source="{Binding Restaurant.Picture.Data.Url}"
+             Aspect="AspectFill"
+             HeightRequest="{Binding RestaurantImageHeight}" />
+
+      <ListView ItemsSource="{Binding MenuItems}" x:Name="menuItemsListView" HasUnevenRows="True">
+        <ListView.ItemTemplate>
+
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.View>
+
+                <StackLayout>
+
+                  <Label Text="{Binding Name}" />
+
+                  <Grid>
+                    <Grid.RowDefinitions>
+                      <RowDefinition
+                        Height="{Binding Source={x:Reference Name=menuItemsListView}, Path=BindingContext.FoodImageHeight}" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="5*" />
+                      <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="{Binding Restaurant.Picture.Data.Url}"
+                           Aspect="AspectFill"
+                           Grid.Row="0"
+                           Grid.Column="0" />
+
+                    <StackLayout Grid.Row="0" Grid.Column="1" >
+
+                      <Label Text="{Binding Price, StringFormat='${0}'}" />
+
+                      <Label Text="{Binding PreparationTime}" />
+
+                      <Label Text="{Binding Name}" />
+                      <Label Text="{Binding Description}" FontSize="9" />
+
+                    </StackLayout>
+                  </Grid>
+
+                </StackLayout>
+
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+
+        </ListView.ItemTemplate>
+      </ListView>
+
+    </StackLayout>
+
+    <Button Text="{Binding Path=ItemsInCart, StringFormat='Checkout     {0}'}"
+                IsVisible="{Binding CartExists}"
+                IsEnabled="{Binding IsNotBusy}"
+                x:Name="checkoutButton"
+                Clicked="CheckoutButton_Clicked" />
+
+  </StackLayout>
+
+</ContentPage>
