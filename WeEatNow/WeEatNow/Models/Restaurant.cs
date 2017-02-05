@@ -56,10 +56,11 @@ namespace WeEatNow.Models
 
         private string _state;
         public string State { get { return _state; } set { _state = value; SetProperty(ref _state, value); } }
-        
+
 
         // ESTEBAN: add menu id and food category.
-
+        private FoodCategory _foodCategory;
+        public FoodCategory FoodCategory { get { return _foodCategory; } set { _foodCategory = value; } }
 
         public int CompareTo(Restaurant other)
         {

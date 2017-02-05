@@ -13,31 +13,17 @@
       <Image Source="{Binding Restaurant.Picture.Data.Url}"
              Aspect="AspectFill"
              HeightRequest="{Binding RestaurantImageHeight}" />
-
-
-      
       
       <Label Text="{Binding Restaurant.Name}" HorizontalTextAlignment="Center" />
 
-      <Grid HorizontalOptions = "LayoutOptions.Center">
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="*" />
-          <ColumnDefinition Width="*" />
-          <ColumnDefinition Width="*" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+      
+      <Label Text="{Binding AveragePrice, StringFormat='{0}'}" HorizontalTextAlignment="Center" />
 
-        <Label Text="$" Grid.Row="0" Grid.Column="0" Font="Bold" />
-        <Label Text="$" Grid.Row="0" Grid.Column="1" />
-        <Label Text="$" Grid.Row="0" Grid.Column="2" />
-        <Label Text="$" Grid.Row="0" Grid.Column="3" />
+      <Label Text="{Binding Restaurant.FoodCategory.Name}" HorizontalTextAlignment="Center" />
       
-      </Grid>
-      
-      
+      <!-- hours of opperation -->
         
-      
-
+  
       <ListView ItemsSource="{Binding MenuItems}" x:Name="menuItemsListView" HasUnevenRows="True">
         <ListView.ItemTemplate>
 

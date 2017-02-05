@@ -32,7 +32,24 @@ namespace WeEatNow.ViewModels
             get { return _foodImageHeight; }
             set { _foodImageHeight = value; OnPropertyChanged(); }
         }
-
+        
+        public FormattedString AveragePrice
+        {
+            get
+            {
+                return new FormattedString
+                {
+                    Spans =
+                    {
+                        new Span { Text = "$", ForegroundColor=Color.Black },
+                        new Span { Text = "$", ForegroundColor=Color.Gray },
+                        new Span { Text = "$", ForegroundColor=Color.Gray },
+                        new Span { Text = "$", ForegroundColor=Color.Gray }
+                    }
+                };
+            }
+        }
+        
         public Size ScreenSize { get; set; }
 
         public ObservableRangeCollection<Models.MenuItem> MenuItems { get; set; }

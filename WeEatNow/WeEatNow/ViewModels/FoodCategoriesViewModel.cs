@@ -75,6 +75,13 @@ namespace WeEatNow.ViewModels
 
                 var loadedRestaurants = await restaurantServices.LoadRestaurants(); // ESTEBAN: load restaurants based on picked food category
 
+                // ********************************* temp change this *********************************
+
+                for (int i = 0; i < loadedRestaurants.Count; i++)
+                    loadedRestaurants[i].FoodCategory = foodCategory;
+
+                // ********************************* temp change this *********************************
+
                 Restaurants = new ObservableRangeCollection<Restaurant>(loadedRestaurants);
                 
                 if (Restaurants == null || Restaurants.Count == 0)
