@@ -16,13 +16,11 @@
       
       <Label Text="{Binding Restaurant.Name}" HorizontalTextAlignment="Center" />
 
-      
-      <Label Text="{Binding AveragePrice, StringFormat='{0}'}" HorizontalTextAlignment="Center" />
+      <Label FormattedText="{Binding AveragePrice}" HorizontalTextAlignment="Center" />
 
       <Label Text="{Binding Restaurant.FoodCategory.Name}" HorizontalTextAlignment="Center" />
       
-      <!-- hours of opperation -->
-        
+      <!-- add hours of opperation here -->
   
       <ListView ItemsSource="{Binding MenuItems}" x:Name="menuItemsListView" HasUnevenRows="True">
         <ListView.ItemTemplate>

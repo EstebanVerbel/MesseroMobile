@@ -8,6 +8,7 @@ using WeEatNow.Models;
 using WeEatNow.Models.Entities;
 using Xamarin.Forms;
 using MvvmHelpers;
+using WeEatNow.Models.DataObjects;
 
 namespace WeEatNow.ViewModels
 {
@@ -37,14 +38,29 @@ namespace WeEatNow.ViewModels
         {
             get
             {
+                int priceLevel;
+
+                if (_restaurant.PriceRange == RestaurantPriceRange.PriceRange.ModeratelyExpensive)
+                    priceLevel = 1;
+                else if (_restaurant.PriceRange == RestaurantPriceRange.PriceRange.Expensive)
+                    priceLevel = 2;
+                else if (_restaurant.PriceRange == RestaurantPriceRange.PriceRange.VeryExpensive)
+                    priceLevel = 3;
+                else
+                    priceLevel = 0;
+
+                Color moderate = (priceLevel < 1) ? Color.Silver : Color.Black;
+                Color expensive = (priceLevel < 2) ? Color.Silver : Color.Black;
+                Color veryExpensive = (priceLevel < 3) ? Color.Silver : Color.Black;
+
                 return new FormattedString
                 {
                     Spans =
                     {
                         new Span { Text = "$", ForegroundColor=Color.Black },
-                        new Span { Text = "$", ForegroundColor=Color.Gray },
-                        new Span { Text = "$", ForegroundColor=Color.Gray },
-                        new Span { Text = "$", ForegroundColor=Color.Gray }
+                        new Span { Text = "$", ForegroundColor=moderate },
+                        new Span { Text = "$", ForegroundColor=expensive },
+                        new Span { Text = "$", ForegroundColor=veryExpensive }
                     }
                 };
             }
