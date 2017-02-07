@@ -40,6 +40,12 @@ namespace WeEatNow.ViewModels
         }
 
 
+        public double FoodNameFontSize
+        {
+            get { return Device.GetNamedSize(NamedSize.Medium, typeof(Label)); }
+        }
+
+
         #endregion
 
         #region -- Constructor --
@@ -47,6 +53,10 @@ namespace WeEatNow.ViewModels
         public MenuItemViewModel()
         {
             Title = "Dish";
+
+            
+
+
         }
 
         #endregion

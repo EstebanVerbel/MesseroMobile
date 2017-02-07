@@ -10,7 +10,7 @@
              Aspect="AspectFill"
              HeightRequest="{Binding FoodImageHeight}" />
     
-    <Label Text="{Binding MenuItem.Name}" HorizontalTextAlignment="Center"/>
+    <Label Text="{Binding MenuItem.Name}" HorizontalTextAlignment="Center" Font="Bold" FontSize="{Binding FoodNameFontSize}" />
 
     <Label Text="{Binding MenuItem.Description}" />
     
