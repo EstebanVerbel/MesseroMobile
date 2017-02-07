@@ -11,10 +11,9 @@
              HeightRequest="{Binding FoodImageHeight}" />
     
     <Label Text="{Binding MenuItem.Name}" HorizontalTextAlignment="Center"/>
-    
-    <Label Text="Special Instructions"  />  
-    <Editor Text="Add a note"/>
 
+    <Label Text="{Binding MenuItem.Description}" />
+    
     <Grid>
       
       <Grid.ColumnDefinitions>

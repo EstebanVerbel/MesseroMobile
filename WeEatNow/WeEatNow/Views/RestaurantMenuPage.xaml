@@ -58,6 +58,7 @@
                       <Label Text="{Binding Description}" FontSize="9" />
 
                     </StackLayout>
+                  
                   </Grid>
 
                 </StackLayout>
