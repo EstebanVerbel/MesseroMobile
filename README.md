@@ -13,23 +13,23 @@ Built with C# 6 features, you must be running VS 2015+ or Xamarin Studio to comp
 ScreenShots
 ===========
 
-Food Categories (Main Page)
+#### Food Categories (Main Page)
 
 ![](Art/1_Screenshot_categories.png)
 
-Restaurants Page
+#### Restaurants Page
 
 ![](Art/2_Screenshot_restaurants.png)
 
-Restaurant Menu (I am re-using the restaurant image for the dishes)
+#### Restaurant Menu (I am re-using the restaurant image for the dishes)
 
 ![](Art/3_Screenshot_restaurant.png)
 
-Food Item (Plate)
+#### Food Item (Plate)
 
 ![](Art/4_Screenshot_plate.png)
 
-Checkout Page
+#### Checkout Page
 
 ![](Art/5_Screenshot_checkout.png)
 
