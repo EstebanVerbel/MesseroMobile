@@ -39,7 +39,7 @@ About 90% of the code is shared for Android and iOS. All of the Models, Services
 
 ## Note
 
-The iOS postion of the priject has not been tested.
+The iOS portion of the project has not been tested.
 
 ## License
 The MIT License (MIT)
